@@ -1,5 +1,5 @@
 /**
- *  Big Talker  -- Version 1.0.1-beta1
+ *  Big Talker  -- Version 1.0.1-beta2
  *  Copyright 2014 brian@rayzurbock.com
  *  For the latest version and test releases visit http://www.github.com/rayzurbock
  *  Donations accepted via Paypal, but not required - rayzur@rayzurbock.com
@@ -596,13 +596,13 @@ def pageConfigSwitch(){
             input name: "switchDeviceGroup2", type: "capability.switch", title: "Switch(es)", required: false, multiple: true
             input name: "switchTalkOn2", type: "text", title: "Say this when switch is turned ON:", required: false
             input name: "switchTalkOff2", type: "text", title: "Say this when switch is turned OFF:", required: false
-            input name: "switchSpeechDevice1", type: "capability.speechSynthesis", title: "Talk with these text-to-speech devices (overrides default)", multiple: true, required: false
+            input name: "switchSpeechDevice2", type: "capability.speechSynthesis", title: "Talk with these text-to-speech devices (overrides default)", multiple: true, required: false
         }
         section("Switch Group 3"){
             input name: "switchDeviceGroup3", type: "capability.switch", title: "Switch(es)", required: false, multiple: true
             input name: "switchTalkOn3", type: "text", title: "Say this when switch is turned ON:", required: false
             input name: "switchTalkOff3", type: "text", title: "Say this when switch is turned OFF:", required: false
-            input name: "switchSpeechDevice1", type: "capability.speechSynthesis", title: "Talk with these text-to-speech devices (overrides default)", multiple: true, required: false
+            input name: "switchSpeechDevice3", type: "capability.speechSynthesis", title: "Talk with these text-to-speech devices (overrides default)", multiple: true, required: false
         }
     }
 //End pageConfigSwitch()
@@ -1132,5 +1132,5 @@ def LOGTRACE(txt){
     log.trace("BIGTALKER | ${txt}")
 }
 def setAppVersion(){
-    state.appversion = "1.0.1-beta1"
+    state.appversion = "1.0.1-beta2"
 }
