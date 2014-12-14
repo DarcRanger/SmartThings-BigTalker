@@ -1,5 +1,5 @@
 /**
- *  Big Talker  -- Version 1.0.0
+ *  Big Talker  -- Version 1.0.1-beta1
  *  Copyright 2014 brian@rayzurbock.com
  *  For the latest version and test releases visit http://www.github.com/rayzurbock
  *  Donations accepted via Paypal, but not required - rayzur@rayzurbock.com
@@ -540,7 +540,8 @@ def pageConfigure(){
     if (state.installed == null) { state.installed = false }
     dynamicPage(name: "pageConfigure", title: "Configure", install: true, uninstall: state.installed) {
         section ("Talk with:"){
-            input "speechDeviceDefault", "capability.speechSynthesis", title: "Talk with these text-to-speech devices (default)", multiple: true, required: true, refreshAfterSelection:true
+            //input "speechDeviceDefault", "capability.speechSynthesis", title: "Talk with these text-to-speech devices (default)", multiple: true, required: false, refreshAfterSelection: true
+            input "speechDeviceDefault", "capability.musicPlayer", title: "Talk with these text-to-speech devices (default)", multiple: true, required: true, refreshAfterSelection: true
         }
         section("Talk on events:") {
             href "pageConfigMotion", title:"Motion", description:"Tap to configure"
@@ -791,9 +792,9 @@ def processMotionEvent(index, evt){
             state.TalkPhrase = processPhraseVariables(state.TalkPhrase, evt)
             LOGDEBUG("Talk: ${state.TalkPhrase}")
             if (!(state.speechDevice == null)) {
-                state.speechDevice.speak(state.TalkPhrase)
+                state.speechDevice.playText(state.TalkPhrase)
             } else {
-                settings.speechDeviceDefault.speak(state.TalkPhrase)
+                settings.speechDeviceDefault.playText(state.TalkPhrase)
             }
         }
     }
@@ -805,9 +806,9 @@ def processMotionEvent(index, evt){
             state.TalkPhrase = processPhraseVariables(state.TalkPhrase, evt)
             LOGDEBUG("Talk: ${state.TalkPhrase}")
             if (!(state.speechDevice == null)) {
-                state.speechDevice.speak(state.TalkPhrase)
+                state.speechDevice.playText(state.TalkPhrase)
             } else {
-                settings.speechDeviceDefault.speak(state.TalkPhrase)
+                settings.speechDeviceDefault.playText(state.TalkPhrase)
             }
         }
     }
@@ -838,9 +839,9 @@ def processSwitchEvent(index, evt){
             state.TalkPhrase = processPhraseVariables(state.TalkPhrase, evt)
             LOGDEBUG("Talk: ${state.TalkPhrase}")
             if (!(state.speechDevice == null)) {
-                state.speechDevice.speak(state.TalkPhrase)
+                state.speechDevice.playText(state.TalkPhrase)
             } else {
-                settings.speechDeviceDefault.speak(state.TalkPhrase)
+                settings.speechDeviceDefault.playText(state.TalkPhrase)
             }
         }
     }
@@ -852,9 +853,9 @@ def processSwitchEvent(index, evt){
             state.TalkPhrase = processPhraseVariables(state.TalkPhrase, evt)
             LOGDEBUG("Talk: ${state.TalkPhrase}")
             if (!(state.speechDevice == null)) {
-                state.speechDevice.speak(state.TalkPhrase)
+                state.speechDevice.playText(state.TalkPhrase)
             } else {
-                settings.speechDeviceDefault.speak(state.TalkPhrase)
+                settings.speechDeviceDefault.playText(state.TalkPhrase)
             }
         }
     }
@@ -886,9 +887,9 @@ def processPresenceEvent(index, evt){
             state.TalkPhrase = processPhraseVariables(state.TalkPhrase, evt)
             LOGDEBUG("Talk: ${state.TalkPhrase}")
             if (!(state.speechDevice == null)) {
-                state.speechDevice.speak(state.TalkPhrase)
+                state.speechDevice.playText(state.TalkPhrase)
             } else {
-                settings.speechDeviceDefault.speak(state.TalkPhrase)
+                settings.speechDeviceDefault.playText(state.TalkPhrase)
             }
         }
     }
@@ -900,9 +901,9 @@ def processPresenceEvent(index, evt){
             state.TalkPhrase = processPhraseVariables(state.TalkPhrase, evt)
             LOGDEBUG("Talk: ${state.TalkPhrase}")
             if (!(state.speechDevice == null)) {
-                state.speechDevice.speak(state.TalkPhrase)
+                state.speechDevice.playText(state.TalkPhrase)
             } else {
-                settings.speechDeviceDefault.speak(state.TalkPhrase)
+                settings.speechDeviceDefault.playText(state.TalkPhrase)
             }
         }
     }
@@ -935,9 +936,9 @@ def processLockEvent(index, evt){
             state.TalkPhrase = processPhraseVariables(state.TalkPhrase, evt)
             LOGDEBUG("Talk: ${state.TalkPhrase}")
             if (!(state.speechDevice == null)) {
-                state.speechDevice.speak(state.TalkPhrase)
+                state.speechDevice.playText(state.TalkPhrase)
             } else {
-                settings.speechDeviceDefault.speak(state.TalkPhrase)
+                settings.speechDeviceDefault.playText(state.TalkPhrase)
             }
         }
     }
@@ -949,9 +950,9 @@ def processLockEvent(index, evt){
             state.TalkPhrase = processPhraseVariables(state.TalkPhrase, evt)
             LOGDEBUG("Talk: ${state.TalkPhrase}")
             if (!(state.speechDevice == null)) {
-                state.speechDevice.speak(state.TalkPhrase)
+                state.speechDevice.playText(state.TalkPhrase)
             } else {
-                settings.speechDeviceDefault.speak(state.TalkPhrase)
+                settings.speechDeviceDefault.playText(state.TalkPhrase)
             }
         }
     }
@@ -983,9 +984,9 @@ def processContactEvent(index, evt){
             state.TalkPhrase = processPhraseVariables(state.TalkPhrase, evt)
             LOGDEBUG("Talk: ${state.TalkPhrase}")
             if (!(state.speechDevice == null)) {
-                state.speechDevice.speak(state.TalkPhrase)
+                state.speechDevice.playText(state.TalkPhrase)
             } else {
-                settings.speechDeviceDefault.speak(state.TalkPhrase)
+                settings.speechDeviceDefault.playText(state.TalkPhrase)
             }
         }
     }
@@ -997,9 +998,9 @@ def processContactEvent(index, evt){
             state.TalkPhrase = processPhraseVariables(state.TalkPhrase, evt)
             LOGDEBUG("Talk: ${state.TalkPhrase}")
             if (!(state.speechDevice == null)) {
-                state.speechDevice.speak(state.TalkPhrase)
+                state.speechDevice.playText(state.TalkPhrase)
             } else {
-                settings.speechDeviceDefault.speak(state.TalkPhrase)
+                settings.speechDeviceDefault.playText(state.TalkPhrase)
             }
         }
     }
@@ -1026,9 +1027,9 @@ def processModeChangeEvent(index, evt){
         state.TalkPhrase = processPhraseVariables(state.TalkPhrase, evt)
         LOGDEBUG("Talk: ${state.TalkPhrase}")
         if (!(state.speechDevice == null)) {
-            state.speechDevice.speak(state.TalkPhrase)
+            state.speechDevice.playText(state.TalkPhrase)
         } else {
-            settings.speechDeviceDefault.speak(state.TalkPhrase)
+            settings.speechDeviceDefault.playText(state.TalkPhrase)
         }
     }
     state.TalkPhrase = null
@@ -1060,9 +1061,9 @@ def processThermostatEvent(index, evt){
             state.TalkPhrase = processPhraseVariables(state.TalkPhrase, evt)
             LOGDEBUG("Talk: ${state.TalkPhrase}")
             if (!(state.speechDevice == null)) {
-                state.speechDevice.speak(state.TalkPhrase)
+                state.speechDevice.playText(state.TalkPhrase)
             } else {
-                settings.speechDeviceDefault.speak(state.TalkPhrase)
+                settings.speechDeviceDefault.playText(state.TalkPhrase)
             }
         }
     }
@@ -1074,9 +1075,9 @@ def processThermostatEvent(index, evt){
             state.TalkPhrase = processPhraseVariables(state.TalkPhrase, evt)
             LOGDEBUG("Talk: ${state.TalkPhrase}")
             if (!(state.speechDevice == null)) {
-                state.speechDevice.speak(state.TalkPhrase)
+                state.speechDevice.playText(state.TalkPhrase)
             } else {
-                settings.speechDeviceDefault.speak(state.TalkPhrase)
+                settings.speechDeviceDefault.playText(state.TalkPhrase)
             }
         }
     }
@@ -1088,9 +1089,9 @@ def processThermostatEvent(index, evt){
             state.TalkPhrase = processPhraseVariables(state.TalkPhrase, evt)
             LOGDEBUG("Talk: ${state.TalkPhrase}")
             if (!(state.speechDevice == null)) {
-                state.speechDevice.speak(state.TalkPhrase)
+                state.speechDevice.playText(state.TalkPhrase)
             } else {
-                settings.speechDeviceDefault.speak(state.TalkPhrase)
+                settings.speechDeviceDefault.playText(state.TalkPhrase)
             }
         }
     }
@@ -1102,9 +1103,9 @@ def processThermostatEvent(index, evt){
             state.TalkPhrase = processPhraseVariables(state.TalkPhrase, evt)
             LOGDEBUG("Talk: ${state.TalkPhrase}")
             if (!(state.speechDevice == null)) {
-                state.speechDevice.speak(state.TalkPhrase)
+                state.speechDevice.playText(state.TalkPhrase)
             } else {
-                settings.speechDeviceDefault.speak(state.TalkPhrase)
+                settings.speechDeviceDefault.playText(state.TalkPhrase)
             }
         }
     }
@@ -1131,5 +1132,5 @@ def LOGTRACE(txt){
     log.trace("BIGTALKER | ${txt}")
 }
 def setAppVersion(){
-    state.appversion = "1.0.0"
+    state.appversion = "1.0.1-beta1"
 }
